@@ -1,5 +1,3 @@
-require 'pry'
-
 def caesar_cipher(string, shift)
   split_string = string.split("")
   
@@ -43,17 +41,11 @@ def caesar_cipher(string, shift)
   code_array = code_shift(code_array, shift)
 
   def get_chars_from_codes(array)
-    array.map do |c|
-      if c.is_a? Integer
-        c = c.chr
-      else
-        c
-      end
-    end
+    array.map { |c| c.is_a?(Integer) ? c.chr : c }
   end
 
   new_string = get_chars_from_codes(code_array).join('')
   p new_string
 end
 
-caesar_cipher("Hello, world!", 5)
+caesar_cipher("Hello, World!", 5)
